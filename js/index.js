@@ -57,10 +57,12 @@ function draw() {
 		drawMiddleSegs();
 	} else if (frameCount == ptns.length - 1) {
 		drawLastSeg();
-	
+		if (typeof main === "function") {
 			main();
-	
+		}
 		mode = 2;
 	}
+	if (mode == 2 && typeof roll === "function") {
 		roll();
+	}
 }
